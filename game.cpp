@@ -5,8 +5,6 @@
  */
 
 #include "game.h"
-#include <cstdlib>
-#include <GL/freeglut.h>
 
 // static initializer
 Game* Game::callbackInstance(NULL);
@@ -46,6 +44,7 @@ void Game::initGame() {
 }
 
 void Game::registerCallbacks() {
+    glutTimerFunc (15, timerWrapper, 0);
     glutDisplayFunc(displayWrapper);
     glutReshapeFunc(reshapeWrapper);
     glutKeyboardFunc(keyboardWrapper);
@@ -77,7 +76,7 @@ void Game::reshapeWrapper(int width, int height) {
 
 void Game::keyboard(unsigned char keycode, int x, int y) {
 	switch (keycode){
-        
+
     }
 }
 
@@ -85,8 +84,14 @@ void Game::keyboardWrapper(unsigned char keycode, int x, int y) {
     callbackInstance->keyboard(keycode, x, y);
 }
 
-// game specific functions here...
+void Game::timer (int val)
+{
+    cout << "val: " << val << endl;
+}
 
-
+void Game::timerWrapper(int val)
+{
+    callbackInstance->timer(val);
+}
 
 

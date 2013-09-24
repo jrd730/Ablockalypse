@@ -6,9 +6,15 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <cstdlib>
+#include <iostream>
+#include <GL/freeglut.h>
+#include <string>
 #include "ball.h"
 #include "brick.h"
 #include "paddle.h"
+
+using namespace std;
 
 class Game {
 private:
@@ -21,6 +27,7 @@ private:
        the object pointed to by callbackInstance.
     */
     static Game* callbackInstance;
+    static void timerWrapper(int);
     static void displayWrapper();
     static void reshapeWrapper(int, int);
     static void keyboardWrapper(unsigned char, int, int);
@@ -54,6 +61,7 @@ private:
        Below are the "real" callback functions. These are the ones that
        provide the functionality of the callbacks.
     */
+    void timer (int);
     void display();
     void reshape(int, int);
     void keyboard(unsigned char, int, int);
