@@ -32,11 +32,13 @@ void Game::init(int* argcp, char** argvp) {
     glutInitWindowSize (480, 480);
     glutCreateWindow ("Ablockalypse");
     glutSetWindowTitle("Ablockalypse");
-    glutSetIconTitle("Ablockalypse"); 
+    glutSetIconTitle("Ablockalypse");
+    glEnable( GL_DEPTH_TEST );
+    glClearColor(0, 0, 0, 0); 
 }
 
 void Game::initGame() {
-    if (callbackInstance == NULL)     {
+    if (callbackInstance == NULL){
         callbackInstance = this;
     }
 
@@ -56,7 +58,9 @@ void Game::run() {
 }
 
 void Game::display() {
-	// display code here...
+	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+
+    glutSwapBuffers();
 }
 
 void Game::displayWrapper() {
@@ -72,7 +76,9 @@ void Game::reshapeWrapper(int width, int height) {
 }
 
 void Game::keyboard(unsigned char keycode, int x, int y) {
-	// keyboard code here...
+	switch (keycode){
+        
+    }
 }
 
 void Game::keyboardWrapper(unsigned char keycode, int x, int y) {
