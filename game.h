@@ -3,9 +3,12 @@
  * Represents the game.
  *
  */
-
 #ifndef GAME_H
 #define GAME_H
+
+#include "ball.h"
+#include "brick.h"
+#include "paddle.h"
 
 class Game {
 private:
@@ -55,7 +58,9 @@ private:
     void reshape(int, int);
     void keyboard(unsigned char, int, int);
 
-    // Add private game functions here...
+    Ball* ball; // the ball bounces around inside the game area
+    Brick** bricks; // array of bricks that must be broken
+    Paddle* paddle; // the player controlled paddle, used to bounce the ball around
 
 
 public:
@@ -73,8 +78,6 @@ public:
        Initialization and starts the game, i.e. enters the GLUT main loop.
     */
     void run();
-
-    // Public game functions here...
 
 };
 

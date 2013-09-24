@@ -6,7 +6,7 @@
 
 #include "game.h"
 #include <cstdlib>
-#include <GL/glut.h>
+#include <GL/freeglut.h>
 
 // static initializer
 Game* Game::callbackInstance(NULL);
@@ -19,12 +19,20 @@ Game::Game(int* argcp, char** argv) {
 }
 
 Game::~Game() {
-	// do any cleanup
+	delete ball;
+    delete paddle;
 }
 
 void Game::init(int* argcp, char** argvp) {
-	// GLUT init code here...
     glutInit(argcp, argvp);
+    glutInitDisplayMode( GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
+    glutInitContextVersion( 3, 2 );
+    glutInitContextProfile( GLUT_CORE_PROFILE );
+    glutInitWindowPosition (0, 0);
+    glutInitWindowSize (480, 480);
+    glutCreateWindow ("Ablockalypse");
+    glutSetWindowTitle("Ablockalypse");
+    glutSetIconTitle("Ablockalypse"); 
 }
 
 void Game::initGame() {
