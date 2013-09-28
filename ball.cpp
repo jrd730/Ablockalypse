@@ -25,5 +25,5 @@ Ball::~Ball()
 
 void Ball::display()
 {
-
+	
 }

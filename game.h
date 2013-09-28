@@ -9,15 +9,15 @@
 #include <cstdlib>
 #include <iostream>
 //#include <GL/freeglut.h>
+#include <sstream>
 #include <string>
+
 #include "Angel.h"
 #include "ball.h"
 #include "brick.h"
 #include "paddle.h"
 
 using namespace std;
-
-enum { Xaxis = 0, Yaxis = 1, Zaxis = 2, NumAxes = 3 };
 
 class Game {
 private:
@@ -43,8 +43,9 @@ private:
     Brick** bricks; // array of bricks that must be broken
     Paddle* paddle; // the player controlled paddle, used to bounce the ball around
 
-    GLuint ball_vao;
     GLuint xlate;
+
+    unsigned score;
 
 public:
 

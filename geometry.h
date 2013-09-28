@@ -8,6 +8,9 @@
 #include <vector>
 #include "Angel.h"
 using namespace std;
+
+enum { Xaxis = 0, Yaxis = 1, Zaxis = 2, NumAxes = 3 };
+
 class Geometry {
 private:
 
@@ -27,6 +30,8 @@ public:
     vec4* vertices;
 
     GLfloat origin[3];
+
+    GLuint vao;
 
     // setters, getters, common behaviors
 };

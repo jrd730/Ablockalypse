@@ -13,13 +13,18 @@ class Paddle : public Geometry {
 private:
 
 	// private vars
+	float width, height, moveInc;
 
 public:
     Paddle();
     ~Paddle();
+    
     void display();
 
 	// paddle specific stuff
+
+    void translate (float modifier);
+
 };
 
 #endif

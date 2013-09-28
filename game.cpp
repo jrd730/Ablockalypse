@@ -14,6 +14,7 @@ Game::Game() {
 
 Game::Game(int* argcp, char** argv) {
     ball = new Ball ();
+    paddle = new Paddle ();
 
     init(argcp, argv);
 }
@@ -46,8 +47,8 @@ void Game::init(int* argcp, char** argvp) {
     xlate = glGetUniformLocation( program, "xlate" );
 
     // create a vertex array object for the ball
-    glGenVertexArrays( 1, &ball_vao );
-    glBindVertexArray( ball_vao );
+    glGenVertexArrays( 1, &ball->vao );
+    glBindVertexArray( ball->vao );
 
     // create and initialize a buffer object for the ball
     GLuint ballBuffer;
@@ -74,6 +75,7 @@ void Game::initGame() {
     }
 
 	// game init code here...
+    score = 0;
 }
 
 void Game::registerCallbacks() {
@@ -94,7 +96,7 @@ void Game::display() {
 
     // set ball translation and draw the ball
     glUniform3fv (xlate, 1, ball->origin);
-    glBindVertexArray (ball_vao);
+    glBindVertexArray (ball->vao);
     glDrawArrays (GL_TRIANGLE_FAN, 0, 4);
 
     glutSwapBuffers();
@@ -115,11 +117,11 @@ void Game::reshapeWrapper(int width, int height) {
 void Game::keyboard(unsigned char keycode, int x, int y) {
 	switch (keycode){
         case 'a':
-
+            paddle->translate (-1.0);
         break;
 
         case 'd':
-
+            paddle->translate (1.0);
         break;
     }
 }
@@ -131,6 +133,11 @@ void Game::keyboardWrapper(unsigned char keycode, int x, int y) {
 void Game::timer (int val)
 {
     //cout << "val: " << val << endl;
+    stringstream ss("");
+    ss << "Ablockalypse v0.1 Score: " << score;
+    score++;
+    glutSetWindowTitle(ss.str().c_str());
+
     glutPostRedisplay();
     glutTimerFunc (150, timerWrapper, 0);
 }
