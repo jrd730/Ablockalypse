@@ -5,7 +5,9 @@
 
 #ifndef GEOMETRY_H
 #define GEOMETRY_H
-
+#include <vector>
+#include "Angel.h"
+using namespace std;
 class Geometry {
 private:
 
@@ -21,6 +23,10 @@ public:
        for display().
     */
     virtual void display() = 0;
+
+    vec4* vertices;
+
+    GLfloat origin[3];
 
     // setters, getters, common behaviors
 };
