@@ -1,3 +1,8 @@
+/**
+  Jason Dietrich
+  CSCI 566 
+*/
+
 /* Geometry.h
  *
  * Base class for geometric objects.
@@ -27,10 +32,16 @@ public:
     */
     virtual void display() = 0;
 
-    vec4* vertices;
+    // points that make up the shape of the object
+    vector <vec4> vertices;
 
-    GLfloat origin[3];
+    // color values to apply to each vertex
+    vector <vec4> colors;
 
+    // offset amount for the vertices 
+    vec3 origin;
+
+    // every object that will be drawn needs its own vertex array object
     GLuint vao;
 
     // setters, getters, common behaviors

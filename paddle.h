@@ -1,3 +1,8 @@
+/**
+  Jason Dietrich
+  CSCI 566 
+*/
+
 /* paddle.h
  *
  * Represents a paddle in the game.
@@ -11,10 +16,6 @@
 
 class Paddle : public Geometry {
 private:
-
-	// private vars
-	float width, height, moveInc;
-
 public:
     Paddle();
     ~Paddle();
@@ -24,7 +25,7 @@ public:
 	// paddle specific stuff
 
     void translate (float modifier);
-
+    float width, height, moveInc;
 };
 
 #endif

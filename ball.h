@@ -1,3 +1,8 @@
+/**
+  Jason Dietrich
+  CSCI 566 
+*/
+
 /* ball.h
  *
  * Represents a ball.
@@ -11,9 +16,6 @@
 class Ball : public Geometry
 {
 private:
-
-	// private variables and functions
-
 public:
     Ball();
     ~Ball();
@@ -21,7 +23,10 @@ public:
     void display();
 
     float size;
+
+    // (X/Y) component velocity 
     vec2 velocity;
+
 	// ball specific functions
 };
 

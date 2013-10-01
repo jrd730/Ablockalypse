@@ -1,3 +1,8 @@
+/**
+  Jason Dietrich
+  CSCI 566 
+*/
+
 /* brick.h
  *
  * Represents a paddle in the game.
@@ -11,12 +16,13 @@
 
 class Brick : public Geometry {
 private:
-
-
 public:
-    Brick();
+	Brick ();
+    Brick(vec3 position);
     ~Brick();
     void display();
+
+    float size;
 
 };
 

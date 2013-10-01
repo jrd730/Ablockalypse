@@ -1,3 +1,8 @@
+/**
+  Jason Dietrich
+  CSCI 566 
+*/
+
 /* main.cpp
  * 
  * Entry point for the game.

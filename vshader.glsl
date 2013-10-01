@@ -8,6 +8,6 @@ uniform vec3 xlate;
 
 void main() 
 {
-    color = vec4(1.0, 1.0, 1.0, 1.0);
+    color = vColor;
     gl_Position = vec4(vPosition.x+xlate[0], vPosition.y+xlate[1], vPosition.zw);
 } 
